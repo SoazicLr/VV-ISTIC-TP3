@@ -1,13 +1,13 @@
 package fr.istic.vv;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class TLSSocketFactory {
 
 
     public void prepareSocket(SSLSocket socket) {
-
         String[] supported = socket.getSupportedProtocols();
         String[] enabled = socket.getEnabledProtocols();
 

@@ -8,8 +8,31 @@ Implement the following method:
 
 ```java
 public static boolean isBalanced(String str) {
-    ...
-}
+        // Create an empty stack
+        Stack<Character> stack = new Stack<Character>();
+
+        // Loop through each character in the input string
+        for (char c : str.toCharArray()) {
+            // If the character is an opening symbol, push it onto the stack
+            if (c == '{' || c == '[' || c == '(') {
+                stack.push(c);
+            }
+            // If the character is a closing symbol, pop the top symbol from the stack
+            // and check if it matches the closing symbol
+            else if (c == '}' || c == ']' || c == ')') {
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                char top = stack.pop();
+                if ((c == '}' && top != '{') || (c == ']' && top != '[') || (c == ')' && top != '(')) {
+                    return false;
+                }
+            }
+        }
+
+        // If the stack is empty, the string is balanced
+        return stack.isEmpty();
+        }
 ```
 
 `isBalanced` returns `true` if `str` is balanced according to the rules explained above. Otherwise, it returns `false`.
@@ -25,4 +48,20 @@ Write below the actions you took on each step and the results you obtained.
 Use the project in [tp3-balanced-strings](../code/tp3-balanced-strings) to complete this exercise.
 
 ## Answer
+1.
+- La string est vide : ""
+- IsBallanced est vrai : 
+  - "()", "[]", "{}"
+  - "[()]", "[[]]", "{[]}"
+  - "{[][]}({})"
+- IsBallenced est faux : 
+  - "(", ")", "[", "}"
+  - "][", ")(", "}{"
+  - "([)]"
 
+2. Il y a 100% de coverage 
+![img.png](img.png)
+
+3. Les tests écrit sont suffisants, il n'y a aps besoin d'écrire de nouveaux tests. 
+4. 
+![img_1.png](img_1.png)

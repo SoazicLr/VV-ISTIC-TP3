@@ -53,3 +53,62 @@ Use the project in [tp3-date](../code/tp3-date) to complete this exercise.
 
 ## Answer
 
+
+1-   
+**CreationDate** :
+Exception : 300,3000,303
+
+**IsValide()** :   
+- valide : (1,1,2020),(10,03,2019),(31,03,2018), (29,02,2024),  
+- non valide : (0,0,0), (31,04,2022), (29,02,2023), (20,14,2009), (40,05,2010)  
+
+**isLeapYear()** :    
+- valide : 2004, 2008, 2016, 4 ,400 
+- non valide : 2003, 2005, 2010, 2011, 2015, 100 
+
+**nextDate()** :   
+- 2/1/2020 : (1,1,2020)  
+- 13/03/2019 : (12,03,2019)  
+- 02/04/2018 : (01,04,2018)  
+- 02/02/2024 : (01,02,2024)  
+- 01/01/2022 : (31,12,2021)  
+
+**previousDate()** :  
+- 31/12/2019 : (1,1,2020)  
+- 11/03/2019 : (12,03,2019)  
+- 31/03/2018 : (01,04,2018)  
+- 29/02/2024 : (01,02,2024)  
+- 30/12/2021 : (31,12,2021)  
+
+**compareTo()** :  
+- 0  :   
+      -> (1,1,2019) : (1,1,2019)  
+- positive :    
+        -> (1,1,2010) : (3,4,2019)  
+        -> (4,4,2000) : (5,4,2000)  
+        -> (22,10,2000) : (3,11,2000)
+- negative :   
+        -> (3,4,2019) : (1,1,2010)   
+        -> (5,4,2000) : (4,4,2000)  
+        -> (3,11,2000) : (22,10,2000)
+- Execption :   
+        -> (3,4,2019) : null
+
+
+2-  100% de coverage 
+![img_2.png](img_2.png)
+
+
+3-  
+![img_3.png](img_3.png)
+Dans le cas de ce predicat tout à été testé, des années normale, bissextile, et aussi la scas plus particulier avec 100 et 400.
+![img_4.png](img_4.png)
+Dans ce prédicat tout n'as pas forcément été tester mais il n'y a pas de raison que cela pose problème.
+
+4-  
+![img_5.png](img_5.png)
+On remarque que les "mutation coverage" est de 94%, il ya 3 mutants qui ont survécu. 
+Dans le detail on peut voir quels prédicat sont concernés.
+![img_6.png](img_6.png)
+Nous avons essayer de rajouter des tests mais nous n'avons pas reussi à regler ce problème.  
+Mais 94% ne semble pas être un si mauvais résultat. 
